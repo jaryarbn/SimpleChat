@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -102,11 +103,12 @@ public class Server {
         }
     }
 
+
     public static class ClientConnection extends Thread {
-        private Socket socket;
-        private Integer clientId;
+        private final Socket socket;
+        private final Integer clientId;
         private String clientName;
-        private Server server;
+        private final Server server;
 
         public ClientConnection(int clientId, Server server, Socket socket) {
             this.clientId = clientId;
@@ -125,7 +127,8 @@ public class Server {
         @Override
         public void run() {
             try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
+
                 String line = null;
                 while ((line = reader.readLine()) != null) {
                     if (isNotOnlineYet()) {

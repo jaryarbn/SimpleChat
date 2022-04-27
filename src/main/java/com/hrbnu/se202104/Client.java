@@ -2,6 +2,7 @@ package com.hrbnu.se202104;
 
 import com.alibaba.fastjson.JSON;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,6 +10,8 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
+
+
     public static void main(String[] args) throws IOException {
         System.out.println("输入你的昵称");
         Scanner userInput = new Scanner(System.in);
