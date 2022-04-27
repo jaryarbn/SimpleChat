@@ -24,7 +24,6 @@ public class Client {
 
         new Thread(() -> readFromServer(socket)).start();
         while (true) {
-
             System.out.println("输入你要发送的聊天消息");
             System.out.println("id:message，例如1:hello代表想id为1的用户发送hello消息");
             System.out.println("id=0代表向所有人发送消息，例如，0:hello代表向所有在线用户发送hello消息");

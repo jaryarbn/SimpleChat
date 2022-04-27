@@ -103,7 +103,6 @@ public class Server {
         }
     }
 
-
     public static class ClientConnection extends Thread {
         private final Socket socket;
         private final Integer clientId;
