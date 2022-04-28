@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Server {
-    private static AtomicInteger COUNTER = new AtomicInteger(0);
+    private static final AtomicInteger COUNTER = new AtomicInteger(0);
     private final ServerSocket server;
     private final Map<Integer, ClientConnection> clients = new ConcurrentHashMap<>();
 
